@@ -1,16 +1,66 @@
-# React + Vite
+# Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repository contains the source code for my personal portfolio website, showcasing my work in software engineering, data, and applied machine learning.
 
-Currently, two official plugins are available:
+The portfolio is designed to present selected projects, professional experience, and technical skills in a clear and focused manner, with an emphasis on real-world problem solving and clean system design.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🔗 **Live Portfolio:** https://sumedhp23.github.io/portfolio/
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Overview
 
-## Expanding the ESLint configuration
+The goal of this portfolio is to provide a concise and structured view of:
+- How I approach engineering and data problems
+- The kind of projects I have built end-to-end
+- My experience working with backend systems, data pipelines, and machine learning models
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+The site prioritizes clarity, performance, and maintainability over excessive visual effects or unnecessary complexity.
+
+---
+
+## Sections
+
+- **Hero & About** — Background, approach to problem-solving, and engineering mindset  
+- **Skills** — Core technologies grouped by practical usage  
+- **Experience** — Professional and internship experience with responsibilities and impact  
+- **Projects** — Selected projects with problem statements, solutions, outcomes, and tech stack  
+- **Contact** — Direct links to GitHub, LinkedIn, and email  
+
+---
+
+## Tech Stack
+
+- **Frontend:** React, JavaScript, CSS
+- **Build Tool:** Vite
+- **Animations:** Framer Motion (used selectively)
+- **Deployment:** GitHub Pages
+
+---
+
+## Local Development
+
+To run the project locally:
+
+```bash
+npm install
+npm run dev
+
+The application will be available at: http://localhost:5173/
+
+---
+
+## Deployment
+
+The portfolio is deployed using GitHub Pages.
+A production build is generated using Vite and published via a separate gh-pages branch.
+
+ - npm run build
+ - npm run deploy
+
+---
+
+## Notes
+
+This repository contains only the source code for the portfolio.
+The deployment output is intentionally kept separate to maintain a clean and review-friendly codebase.
