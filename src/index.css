@@ -453,6 +453,7 @@ body::before {
   section {
     padding: 64px 24px;
     min-height: auto;
+    justify-content: flex-start;
   }
 }
 
