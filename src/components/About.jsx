@@ -24,7 +24,7 @@ export default function About() {
       {/* Resume Button */}
       <div className="about-resume">
         <a
-          href="public/Sumedh_job_CV.pdf"
+          href={`${import.meta.env.BASE_URL}Sumedh_job_CV.pdf`}
           target="_blank"
           rel="noopener noreferrer"
           className="resume-button"
