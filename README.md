@@ -56,8 +56,10 @@ The application will be available at: http://localhost:5173/
 The portfolio is deployed using GitHub Pages.
 A production build is generated using Vite and published via a separate gh-pages branch.
 
+```bash
  - npm run build
  - npm run deploy
+```
 
 ---
 
