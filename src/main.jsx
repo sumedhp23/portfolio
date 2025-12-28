@@ -3,18 +3,6 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./index.css";
 
-document.addEventListener("mousemove", (e) => {
-  requestAnimationFrame(() => {
-    document.documentElement.style.setProperty(
-      "--cursor-x",
-      `${e.clientX}px`
-    );
-    document.documentElement.style.setProperty(
-      "--cursor-y",
-      `${e.clientY}px`
-    );
-  });
-});
 
 // Cursor-reactive background logic (desktop only)
 if (window.matchMedia("(hover: hover)").matches) {
@@ -36,6 +24,17 @@ if (window.matchMedia("(hover: hover)").matches) {
     });
   });
 }
+
+function updateVh() {
+  document.documentElement.style.setProperty(
+    "--vh",
+    `${window.innerHeight * 0.01}px`
+  );
+}
+
+updateVh();
+window.addEventListener("resize", updateVh);
+window.addEventListener("orientationchange", updateVh);
 
 
 ReactDOM.createRoot(document.getElementById("root")).render(
