@@ -1,0 +1,21 @@
+:root {
+  /* Base */
+  --bg-primary: #0f1115;
+  --bg-secondary: #141821;
+
+  /* Surfaces */
+  --surface-primary: #171b24;
+  --surface-secondary: #1d2230;
+
+  /* Text */
+  --text-primary: #f4f6fb;
+  --text-secondary: #b3b8c6;
+  --text-muted: #8a90a2;
+
+  /* Accent */
+  --accent: #6b8cff;
+  --accent-soft: rgba(107, 140, 255, 0.15);
+
+  /* Borders */
+  --border-subtle: rgba(255, 255, 255, 0.06);
+}

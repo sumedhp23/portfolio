@@ -1,0 +1,150 @@
+:root {
+
+  --mx: 50%;
+  --my: 50%;
+
+   --bg-primary: #0e0e11;
+  --accent: #78c8ff;
+  /* Typography scale */
+  --font-sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Inter",
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  --text-primary: #f5f6f7;
+  --text-secondary: #c9ccd1;
+  --text-muted: #9aa0a6;
+
+  --fs-h1: clamp(2.6rem, 6vw, 4.6rem);
+  --fs-h2: clamp(2rem, 4vw, 3rem);
+  --fs-h3: 1.2rem;
+  --fs-body: 1.05rem;
+  --fs-small: 0.9rem;
+
+  --lh-tight: 1.15;
+  --lh-normal: 1.65;
+
+  /* Spacing rhythm */
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 40px;
+  --space-xl: 64px;
+  --space-2xl: 96px;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: var(--font-sans);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--text-primary);
+}
+
+section {
+  position: relative;
+  scroll-margin-top: 120px;
+  padding-block: var(--space-2xl);
+}
+
+section > * + * {
+  margin-top: var(--space-lg);
+}
+
+#experience,
+#projects {
+  scroll-margin-top: 200px;
+}
+
+/* Interactive text links */
+.interactive-link {
+  position: relative;
+  display: inline-block;
+  color: var(--text-primary);
+  transition: color 0.2s ease;
+}
+
+.interactive-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.25s ease;
+}
+
+.interactive-link:hover {
+  color: var(--accent);
+}
+
+.interactive-link:hover::after {
+  width: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--text-primary);
+}
+
+h1, h2, h3 {
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  font-size: var(--fs-h1);
+  line-height: var(--lh-tight);
+}
+
+h2 {
+  font-size: var(--fs-h2);
+  line-height: 1.2;
+}
+
+h3 {
+  font-size: var(--fs-h3);
+}
+
+p {
+  font-size: var(--fs-body);
+  line-height: var(--lh-normal);
+  color: var(--text-secondary);
+}
+
+small {
+  font-size: var(--fs-small);
+  color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+  section {
+    padding-block: var(--space-xl);
+  }
+
+  p {
+    font-size: 1rem;
+  }
+}
