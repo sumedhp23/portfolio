@@ -1,3 +1,4 @@
+import ScrollProgress from "../components/ScrollProgress/ScrollProgress";
 import { Outlet, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { useEffect } from "react";
@@ -37,6 +38,8 @@ export default function App() {
             "radial-gradient(750px circle at var(--mx) var(--my), rgba(120,200,255,0.20), transparent 60%)",
         }}
       />
+
+      <ScrollProgress />
 
       <AnimatePresence mode="wait">
         <Outlet key={location.key} />

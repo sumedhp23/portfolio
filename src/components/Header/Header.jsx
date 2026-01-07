@@ -1,8 +1,18 @@
 import { useNavigate } from "react-router-dom";
-import { navigateToSection } from "../../utils/navigateToSection";
 
 export default function Header({ onMenuOpen }) {
   const navigate = useNavigate();
+
+  const handleHomeClick = () => {
+    // Always go home first
+    navigate("/", { replace: false });
+
+    // Then scroll to top
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <header
@@ -21,7 +31,7 @@ export default function Header({ onMenuOpen }) {
       }}
     >
       <button
-        onClick={() => navigateToSection(navigate, "hero")}
+        onClick={handleHomeClick}
         style={{
           background: "none",
           border: 0,

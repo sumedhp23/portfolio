@@ -1,5 +1,5 @@
 import { Canvas, useFrame } from "@react-three/fiber";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import * as THREE from "three";
 
 function FlowPlane({ mouse }) {
@@ -9,9 +9,7 @@ function FlowPlane({ mouse }) {
     if (!material.current) return;
 
     material.current.uniforms.uTime.value = clock.elapsedTime * 0.4;
-
-    // smooth mouse lerp
-    material.current.uniforms.uMouse.value.lerp(mouse, 0.08);
+    material.current.uniforms.uMouse.value.lerp(mouse, 0.14);
   });
 
   return (
@@ -35,31 +33,43 @@ function FlowPlane({ mouse }) {
             vUv = uv;
             vec3 pos = position;
 
-            float wave =
-              sin(pos.x * 2.0 + uTime) * 0.12 +
-              cos(pos.y * 2.5 + uTime * 0.8) * 0.12;
+            float primaryWave =
+              sin(pos.x * 2.2 + uTime) * 0.18 +
+              cos(pos.y * 2.8 + uTime * 0.9) * 0.18;
+
+            float slowBreath =
+              sin(uTime * 0.6) * 0.08;
+
+            float wave = primaryWave + slowBreath;
+
+            float flow =
+              sin((pos.x + pos.y) * 1.5 + uTime * 0.7) * 0.12;
+
+            pos.z += flow;
 
             float mouseInfluence =
-              smoothstep(0.9, 0.0, distance(vUv, uMouse * 0.6 + 0.5));
+              smoothstep(1.0, 0.0, distance(vUv, uMouse * 0.55 + 0.5));
 
-
-            pos.z += wave + mouseInfluence * 0.45;
+            pos.z += wave + mouseInfluence * 0.9;
 
             gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
           }
         `}
         fragmentShader={`
+          uniform float uTime;
           varying vec2 vUv;
 
           void main() {
+            float shimmer = sin(uTime * 0.4 + vUv.y * 4.0) * 0.03;
+
             vec3 base = mix(
               vec3(0.05, 0.07, 0.12),
-              vec3(0.10, 0.16, 0.22),
-              vUv.y
+              vec3(0.12, 0.18, 0.26),
+              vUv.y + shimmer
             );
 
             float vignette = smoothstep(0.9, 0.2, distance(vUv, vec2(0.5)));
-            gl_FragColor = vec4(base + vignette * 0.15, 0.35);
+            gl_FragColor = vec4(base + vignette * 0.18, 0.35);
           }
         `}
       />

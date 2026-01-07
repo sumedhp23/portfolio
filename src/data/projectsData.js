@@ -22,7 +22,7 @@ export const projects = [
         "Built a foundation for scalable forecasting workflows",
       ],
       tech: ["Python", "Pandas", "Scikit-learn", "Time Series Analysis"],
-      repo: null,
+      repo: "https://github.com/sumedhp23/product-demand-forecasting",
     },
   },
 
@@ -47,7 +47,7 @@ export const projects = [
         "Created a base for future predictive modeling",
       ],
       tech: ["Python", "Pandas", "Exploratory Data Analysis"],
-      repo: null,
+      repo: "https://github.com/sumedhp23/product-demand-forecasting",
     },
   },
 
