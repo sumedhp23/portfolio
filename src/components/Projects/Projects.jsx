@@ -49,7 +49,7 @@ export default function Projects() {
             <div
               style={{
                 height: 200,
-                backgroundImage: `url(/src/assets/projects/${project.id}/hero.jpg)`,
+                backgroundImage: `url(/projects/${project.id}/hero.jpg)`, 
                 backgroundSize: "cover",
                 backgroundPosition: "center",
               }}
