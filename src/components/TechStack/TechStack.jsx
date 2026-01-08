@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
+
 const techData = [
   {
     key: "languages",
@@ -69,9 +70,13 @@ export default function TechStack() {
       style={{
         padding: "180px 24px",
         textAlign: "center",
-        position: "relative", zIndex: 10,
+        position: "relative",
+        zIndex: 10,
+        background:
+          "radial-gradient(1200px circle at 50% 50%, rgba(120,200,255,0.05), transparent 70%)",
       }}
     >
+      
       {/* Heading */}
       <motion.h2
         initial={{ opacity: 0, y: 14 }}
