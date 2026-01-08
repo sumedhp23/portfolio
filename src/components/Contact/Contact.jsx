@@ -38,8 +38,9 @@ export default function Contact() {
         }}
       >
         I’m always open to discussing impactful projects, internships,
-        full-time roles, or collaborations across software engineering,
-        data, and machine learning.
+        full-time roles, or collaborations across software and data
+        engineering, machine learning or even have a chat over a 
+        cup of coffee!
       </motion.p>
 
       <motion.div variants={fadeUp} style={{ marginBottom: 48 }}>
