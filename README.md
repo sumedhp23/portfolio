@@ -3,8 +3,8 @@
 A modern, performance-focused personal portfolio built to showcase my work in **software engineering, data engineering, and machine learning**.  
 Designed with clarity, motion, and scalability in mind.
 
-🔗 **Live Website:** https://<your-vercel-url>.vercel.app  
-📄 **Resume:** Available directly on the website
+**Live Website:** https://portfolio-sigma-coral-7non3rops6.vercel.app/
+**Resume:** Available directly on the website
 
 ---
 
@@ -39,50 +39,7 @@ The goal of this portfolio is not just visual polish, but **engineering clarity*
 
 ---
 
-## 📁 Project Structure
-
-# Personal Portfolio – Sumedh Patil
-
-A modern, performance-focused personal portfolio built to showcase my work in **software engineering, data engineering, and machine learning**.  
-Designed with clarity, motion, and scalability in mind.
-
-🔗 **Live Website:** https://<your-vercel-url>.vercel.app  
-📄 **Resume:** Available directly on the website
-
----
-
-## ✨ Overview
-
-This portfolio highlights:
-- My professional **experience & education**
-- **Projects** with detailed case studies
-- A structured **technical skill set**
-- Clean UI with subtle motion and interactive elements
-- Fully responsive design (desktop & mobile)
-
-The goal of this portfolio is not just visual polish, but **engineering clarity** — clear structure, maintainable code, and production-ready deployment.
-
----
-
-## 🛠 Tech Stack
-
-**Frontend**
-- React
-- React Router
-- Framer Motion (animations)
-- Three.js / React Three Fiber (interactive hero background)
-
-**Build & Tooling**
-- Vite
-- ESLint
-- Git & GitHub
-
-**Deployment**
-- Vercel
-
----
-
-## 📁 Project Structure
+## Project Structure
 
 portfolio/
 ├── src/
