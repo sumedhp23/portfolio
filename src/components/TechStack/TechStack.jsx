@@ -36,7 +36,7 @@ const techData = [
   {
     key: "frameworks",
     label: "Frameworks",
-    items: ["Django", "Flask"],
+    items: ["Django", "Flask", "React"],
   },
   {
     key: "databases",

@@ -1,7 +1,7 @@
 export const experience = [
   {
     id: "nrb-paints",
-    role: "Data Engineering Intern",
+    role: "Digital Product Data Analyst",
     org: "NRB Paints",
     period: "2025 — Present",
     short:
@@ -115,7 +115,7 @@ export const experience = [
   {
     id: "college-1",
     role: "Bachelor of Engineering — Computer Science",
-    org: "Primary College",
+    org: "KLS Gogte Institue of Technology",
     period: "2021 — 2025",
     short:
       "Built strong foundations in computer science, data structures, databases, and software engineering.",
@@ -124,7 +124,7 @@ export const experience = [
   {
     id: "college-2",
     role: "Pre-University Education",
-    org: "Secondary College",
+    org: "G. S. Sc. PU College",
     period: "2019 — 2021",
     short:
       "Focused on mathematics, logical reasoning, and foundational computing concepts.",

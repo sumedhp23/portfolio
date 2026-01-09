@@ -5,7 +5,20 @@ import { staggerContainer, fadeItem } from "../../animations/variants";
 
 export default function Projects() {
   return (
-    <section  id="projects"  style={{ padding: "160px 80px" }}>
+    <section id="projects" style={{ padding: "160px 80px" }}>
+      {/* MOBILE OVERRIDES */}
+      <style>{`
+        @media (max-width: 640px) and (orientation: portrait) {
+          .projects-grid {
+            grid-template-columns: 1fr !important;
+            gap: 32px !important;
+          }
+          .project-image {
+            height: 240px !important;
+          }
+        }
+      `}</style>
+
       <h2
         style={{
           textAlign: "center",
@@ -22,6 +35,7 @@ export default function Projects() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: false, amount: 0.2 }}
+        className="projects-grid"
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
@@ -47,9 +61,10 @@ export default function Projects() {
           >
             {/* Hero image */}
             <div
+              className="project-image"
               style={{
                 height: 200,
-                backgroundImage: `url(/projects/${project.id}/hero.jpg)`, 
+                backgroundImage: `url(/projects/${project.id}/hero.jpg)`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
               }}
@@ -104,7 +119,6 @@ export default function Projects() {
                   href={project.details.repo}
                   target="_blank"
                   rel="noreferrer"
-                  aria-label="GitHub repository"
                   style={{
                     color: "var(--text-muted)",
                     fontSize: "1.1rem",
