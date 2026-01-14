@@ -24,7 +24,24 @@ export default function ProjectDetail() {
         margin: "0 auto",
       }}
     >
+      {/* MOBILE OVERRIDES */}
+      <style>{`
+        @media (max-width: 768px) {
+          .project-layout {
+            grid-template-columns: 1fr !important;
+            gap: 48px !important;
+          }
+          .screenshots {
+            position: static !important;
+          }
+          .screenshot {
+            height: 260px !important;
+          }
+        }
+      `}</style>
+
       <div
+        className="project-layout"
         style={{
           display: "grid",
           gridTemplateColumns: "1.2fr 1fr",
@@ -91,21 +108,48 @@ export default function ProjectDetail() {
             </ul>
           </motion.div>
 
-          <motion.div variants={fadeUp} style={{ marginTop: 40 }}>
-            <a
-              href={project.details.repo}
-              target="_blank"
-              rel="noreferrer"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: 8,
-                color: "var(--accent)",
-              }}
-            >
-              <span style={{ fontSize: "1.2rem" }}></span>
-              View GitHub Repository
-            </a>
+          {/* LINKS */}
+          <motion.div
+            variants={fadeUp}
+            style={{
+              marginTop: 40,
+              display: "flex",
+              gap: 24,
+              alignItems: "center",
+            }}
+          >
+            {project.details.repo && (
+              <a
+                href={project.details.repo}
+                target="_blank"
+                rel="noreferrer"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 8,
+                  color: "var(--accent)",
+                }}
+              >
+                <span style={{ fontSize: "1.2rem" }}></span>
+                GitHub
+              </a>
+            )}
+
+            {project.details.demo && (
+              <a
+                href={project.details.demo}
+                target="_blank"
+                rel="noreferrer"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 8,
+                  color: "var(--accent)",
+                }}
+              >
+                🌐 Live Demo
+              </a>
+            )}
           </motion.div>
 
           <motion.div variants={fadeUp} style={{ marginTop: 64 }}>
@@ -113,14 +157,15 @@ export default function ProjectDetail() {
           </motion.div>
         </div>
 
-        {/* ================= RIGHT COLUMN (STICKY) ================= */}
+        {/* ================= RIGHT COLUMN ================= */}
         <div
+          className="screenshots"
           style={{
             position: "sticky",
             top: 120,
             display: "flex",
             flexDirection: "column",
-            gap: 24,
+            gap: 32,
           }}
         >
           {project.screenshots?.map((src, idx) => (
@@ -128,11 +173,12 @@ export default function ProjectDetail() {
               key={idx}
               src={src}
               alt={`${project.title} screenshot ${idx + 1}`}
+              className="screenshot"
               style={{
                 width: "100%",
-                height: 220,
+                height: 300, // ⬅️ INCREASED
                 objectFit: "cover",
-                borderRadius: 12,
+                borderRadius: 14,
                 border: "1px solid rgba(255,255,255,0.08)",
               }}
             />

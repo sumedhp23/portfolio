@@ -124,6 +124,7 @@ export const projects = [
       ],
       tech: ["Django", "Python", "REST APIs", "SQL"],
       repo: "https://github.com/sumedhp23/weather-forecast-django",
+      demo: "https://weather-forecast-django.onrender.com",
     },
   },
 ];
