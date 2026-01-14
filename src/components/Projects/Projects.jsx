@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { projects } from "../../data/projectsData";
 import { staggerContainer, fadeItem } from "../../animations/variants";
+import { FaGithub } from "react-icons/fa";
 
 export default function Projects() {
   return (
@@ -115,17 +116,26 @@ export default function Projects() {
               </Link>
 
               {project.details.repo && (
-                <a
+                <motion.a
                   href={project.details.repo}
                   target="_blank"
                   rel="noreferrer"
+                  aria-label="GitHub repository"
+                  whileHover={{
+                    scale: 1.15,
+                    color: "var(--accent)",
+                    filter: "drop-shadow(0 0 6px rgba(120,200,255,0.6))",
+                  }}
+                  transition={{ duration: 0.2, ease: "easeOut" }}
                   style={{
                     color: "var(--text-muted)",
-                    fontSize: "1.1rem",
+                    fontSize: "1.3rem",
+                    display: "flex",
+                    alignItems: "center",
                   }}
                 >
-                  
-                </a>
+                  <FaGithub />
+                </motion.a>
               )}
             </div>
           </motion.article>
