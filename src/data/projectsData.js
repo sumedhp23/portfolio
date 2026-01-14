@@ -4,6 +4,10 @@ export const projects = [
     title: "Product Demand Forecasting",
     short:
       "Built a demand forecasting system to predict product-level demand using historical sales data.",
+    screenshots: [
+    "/projects/product-demand-forecasting/screenshot-1.jpg",
+    "/projects/product-demand-forecasting/screenshot-2.jpg",
+    ],
     details: {
       problem:
         "Businesses often struggle with inventory planning due to inaccurate demand estimation, leading to stockouts or excess inventory.",
@@ -31,6 +35,10 @@ export const projects = [
     title: "Food Analysis",
     short:
       "Exploratory analysis of food-related datasets to uncover quality indicators and category-level patterns.",
+    screenshots: [
+    "/projects/food-analysis/screenshot-1.jpg",
+    "/projects/food-analysis/screenshot-2.jpg",
+    ],
     details: {
       problem:
         "Food datasets often lack structured insights around quality, trends, and measurable indicators.",
@@ -56,6 +64,10 @@ export const projects = [
     title: "Transaction Risk Modeling & Fraud Detection",
     short:
       "Developed an end-to-end fraud detection and transaction risk scoring system for imbalanced financial data.",
+    screenshots: [
+    "/projects/fraud-detection/screenshot-1.jpg",
+    "/projects/fraud-detection/screenshot-2.jpg",
+    ],
     details: {
       problem:
         "Financial fraud datasets are highly imbalanced, making it difficult to detect fraudulent transactions without increasing false positives.",
@@ -89,6 +101,10 @@ export const projects = [
     title: "Weather Intelligence Platform",
     short:
       "Built a scalable weather intelligence platform with real-time API ingestion and backend processing.",
+    screenshots: [
+    "/projects/weather-intelligence/screenshot-1.jpg",
+    "/projects/weather-intelligence/screenshot-2.jpg",
+    ],
     details: {
       problem:
         "Live weather APIs are inconsistent and unreliable without proper validation and structuring.",

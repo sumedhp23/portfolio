@@ -32,7 +32,7 @@ export default function ProjectDetail() {
           alignItems: "flex-start",
         }}
       >
-        {/* ================= LEFT COLUMN (SCROLLS) ================= */}
+        {/* ================= LEFT COLUMN ================= */}
         <div>
           <motion.h1 variants={fadeUp}>{project.title}</motion.h1>
 
@@ -47,7 +47,6 @@ export default function ProjectDetail() {
             {project.short}
           </motion.p>
 
-          {/* Tech Stack */}
           <motion.div variants={fadeUp} style={{ marginTop: 32 }}>
             <h3>Tech Stack</h3>
             <p style={{ color: "var(--text-muted)" }}>
@@ -55,13 +54,11 @@ export default function ProjectDetail() {
             </p>
           </motion.div>
 
-          {/* Problem */}
           <motion.div variants={fadeUp} style={{ marginTop: 48 }}>
             <h3>Problem</h3>
             <p>{project.details.problem}</p>
           </motion.div>
 
-          {/* Constraints */}
           {project.details.constraints && (
             <motion.div variants={fadeUp} style={{ marginTop: 32 }}>
               <h3>Constraints</h3>
@@ -73,13 +70,11 @@ export default function ProjectDetail() {
             </motion.div>
           )}
 
-          {/* Solution */}
           <motion.div variants={fadeUp} style={{ marginTop: 32 }}>
             <h3>Solution</h3>
             <p>{project.details.solution}</p>
           </motion.div>
 
-          {/* Architecture */}
           {project.details.architecture && (
             <motion.div variants={fadeUp} style={{ marginTop: 32 }}>
               <h3>System Flow</h3>
@@ -87,7 +82,6 @@ export default function ProjectDetail() {
             </motion.div>
           )}
 
-          {/* Impact */}
           <motion.div variants={fadeUp} style={{ marginTop: 32 }}>
             <h3>Impact</h3>
             <ul>
@@ -97,10 +91,9 @@ export default function ProjectDetail() {
             </ul>
           </motion.div>
 
-          {/* GitHub Link */}
           <motion.div variants={fadeUp} style={{ marginTop: 40 }}>
             <a
-              href={project.details.repo || "#"}
+              href={project.details.repo}
               target="_blank"
               rel="noreferrer"
               style={{
@@ -108,7 +101,6 @@ export default function ProjectDetail() {
                 alignItems: "center",
                 gap: 8,
                 color: "var(--accent)",
-                fontSize: "0.95rem",
               }}
             >
               <span style={{ fontSize: "1.2rem" }}></span>
@@ -131,37 +123,20 @@ export default function ProjectDetail() {
             gap: 24,
           }}
         >
-          {/* Screenshot 1 */}
-          <div
-            style={{
-              height: 220,
-              borderRadius: 12,
-              background: "rgba(255,255,255,0.05)",
-              border: "1px dashed rgba(255,255,255,0.2)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              color: "var(--text-muted)",
-            }}
-          >
-            Screenshot 1
-          </div>
-
-          {/* Screenshot 2 */}
-          <div
-            style={{
-              height: 220,
-              borderRadius: 12,
-              background: "rgba(255,255,255,0.05)",
-              border: "1px dashed rgba(255,255,255,0.2)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              color: "var(--text-muted)",
-            }}
-          >
-            Screenshot 2
-          </div>
+          {project.screenshots?.map((src, idx) => (
+            <img
+              key={idx}
+              src={src}
+              alt={`${project.title} screenshot ${idx + 1}`}
+              style={{
+                width: "100%",
+                height: 220,
+                objectFit: "cover",
+                borderRadius: 12,
+                border: "1px solid rgba(255,255,255,0.08)",
+              }}
+            />
+          ))}
         </div>
       </div>
     </motion.main>
