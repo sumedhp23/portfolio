@@ -102,6 +102,6 @@ The app will be available at: http://localhost:5173/
 
 ## Contact
 
-If you'd like to collaborate or discuss opportunities, feel free to reach out via the contact section on the website.
+If you'd like to collaborate or discuss opportunities, feel free to reach out via the contact section on the website or mail me at sumedhpatil03@gmail.com.
 
 https://portfolio-sigma-coral-7non3rops6.vercel.app/
