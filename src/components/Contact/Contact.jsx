@@ -54,7 +54,7 @@ export default function Contact() {
             paddingBottom: 4,
           }}
         >
-          sumedhpatil@example.com
+          sumedhpatil03@gmail.com
         </a>
       </motion.div>
 
