@@ -4,7 +4,6 @@ A modern, performance-focused personal portfolio built to showcase my work in **
 Designed with clarity, motion, and scalability in mind.
 
 **Live Website:** https://portfolio-sigma-coral-7non3rops6.vercel.app/
-**Resume:** Available directly on the website
 
 ---
 
