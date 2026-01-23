@@ -52,7 +52,7 @@ export default function Hero() {
           color: "var(--text-secondary)",
         }}
       >
-        Im Sumedh — a software engineer working across
+        Im Sumedh, a software engineer working across
         data, machine learning, and frontend systems,
         focused on building reliable products with
         thoughtful user experience.
