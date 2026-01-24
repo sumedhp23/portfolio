@@ -3,7 +3,7 @@ export const certifications = [
     id: "google-data-analytics",
     title: "Google Data Analytics Professional Certificate",
     issuer: "Google",
-    skills: ["SQL", "Python", "Tableau"],
+    skills: ["Data Analytics", "SQL", "R", "Tableau", "Spreadsheets", "Problem Solving"],
     hero: "/certifications/google-data-analytics/hero.jpg",
     full: "/certifications/google-data-analytics/full.jpg",
     verify: "https://www.credly.com/go/cdIWKKx2",
@@ -15,6 +15,6 @@ export const certifications = [
     skills: ["Machine Learning", "Statistics", "Python"],
     hero: "/certifications/nptel-dse/hero.jpg",
     full: "/certifications/nptel-dse/full.jpg",
-    verify: "https://nptel.ac.in/verify/XXXX",
+    verify: "https://archive.nptel.ac.in/noc/Ecertificate/?q=NPTEL24CS53S64650021830182933",
   },
 ];
