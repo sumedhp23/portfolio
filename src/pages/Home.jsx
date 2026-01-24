@@ -11,6 +11,7 @@ import About from "../components/About/About";
 import TechStack from "../components/TechStack/TechStack";
 import Experience from "../components/Experience/Experience";
 import Projects from "../components/Projects/Projects";
+import Certifications from "../components/Certifications";
 import Contact from "../components/Contact/Contact";
 
 export default function Home() {
@@ -31,6 +32,7 @@ export default function Home() {
       <TechStack />
       <Experience />
       <Projects />
+      <Certifications />
       <Contact />
     </motion.main>
   );
