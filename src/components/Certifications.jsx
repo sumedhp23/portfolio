@@ -9,6 +9,19 @@ export default function Certifications() {
 
   return (
     <section id="certifications" style={{ padding: "160px 80px" }}>
+      {/* MOBILE OVERRIDES — MATCH PROJECTS PATTERN */}
+      <style>{`
+        @media (max-width: 640px) and (orientation: portrait) {
+          .certifications-grid {
+            grid-template-columns: 1fr !important;
+            gap: 32px !important;
+          }
+          .cert-hero {
+            height: 240px !important;
+          }
+        }
+      `}</style>
+
       <h2
         style={{
           textAlign: "center",
@@ -25,6 +38,7 @@ export default function Certifications() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: false, amount: 0.2 }}
+        className="certifications-grid"
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
@@ -50,8 +64,9 @@ export default function Certifications() {
             }}
             onClick={() => setActiveCert(cert)}
           >
-            {/* Hero image — MATCHES PROJECTS EXACTLY */}
+            {/* Hero image — matches Projects */}
             <div
+              className="cert-hero"
               style={{
                 height: 200,
                 backgroundImage: `url(${cert.hero})`,
