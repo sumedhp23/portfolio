@@ -15,9 +15,9 @@ export default async function handler(req, res) {
 
   try {
     await resend.emails.send({
-      from: "Portfolio Contact <onboarding@resend.dev>",
+      from: "Sumedh Patil <sumedhpatil03@gmail.com>",
       to: ["sumedhpatil03@gmail.com"],
-      subject: `New Portfolio Message from ${name}`,
+      subject: `Portfolio message from ${name}`,
       reply_to: email,
       html: `
         <p><strong>Name:</strong> ${name}</p>
@@ -28,6 +28,7 @@ export default async function handler(req, res) {
 
     return res.status(200).json({ success: true });
   } catch (error) {
+    console.error(error);
     return res.status(500).json({ error: "Email failed" });
   }
 }
