@@ -208,6 +208,7 @@ export default function Contact() {
         style={{
           marginTop: 120,
           paddingTop: 32,
+          textAlign: "center",
           borderTop: "1px solid rgba(255,255,255,0.08)",
           fontSize: "0.85rem",
           color: "var(--text-muted)",
