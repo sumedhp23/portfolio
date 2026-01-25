@@ -43,6 +43,13 @@ export default function MenuOverlay({ isOpen, onClose }) {
             <MenuItem label="Tech Stack" onClick={() => handleClick("tech")} />
             <MenuItem label="Experience" onClick={() => handleClick("experience")} />
             <MenuItem label="Projects" onClick={() => handleClick("projects")} />
+
+            {/* ✅ NEW: Certifications */}
+            <MenuItem
+              label="Certifications"
+              onClick={() => handleClick("certifications")}
+            />
+
             <MenuItem label="Contact" onClick={() => handleClick("contact")} />
 
             <button
