@@ -111,10 +111,12 @@ export default function TechStack() {
               key={item.key}
               onClick={() => setActive(item.key)}
               whileHover={{
-                y: -2,
-                boxShadow: "0 0 0 1px rgba(255,255,255,0.35)",
+                y: -4,
+                background:
+                  "radial-gradient(400px circle at var(--mx) var(--my), rgba(120,200,255,0.18), transparent 60%), rgba(255,255,255,0.08)",
+                borderColor: "rgba(120,200,255,0.45)",
               }}
-              transition={{ duration: 0.2 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
               style={{
                 padding: "12px 22px",
                 borderRadius: 999,
@@ -135,6 +137,7 @@ export default function TechStack() {
             >
               {item.label}
             </motion.button>
+
           );
         })}
       </div>
@@ -158,22 +161,34 @@ export default function TechStack() {
         >
           {activeItem.items.map((skill, idx) => (
             <motion.span
-                key={idx}
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: idx * 0.03 }}
-                style={{
+              key={idx}
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              whileHover={{
+                y: -2,
+                color: "var(--accent)",
+                textShadow: "0 0 10px rgba(120,200,255,0.55)",
+              }}
+              transition={{
+                duration: 0.2,
+                delay: idx * 0.03,
+                ease: "easeOut",
+              }}
+              style={{
                 fontSize: "1rem",
                 color: "var(--text-secondary)",
                 lineHeight: 1.8,
                 letterSpacing: "0.01em",
                 whiteSpace: "nowrap",
-                }}
+                cursor: "default",
+              }}
             >
-                {skill}
-                {idx !== activeItem.items.length - 1 && " · "}
+              {skill}
+              {idx !== activeItem.items.length - 1 && " · "}
             </motion.span>
-        ))}
+          ))}
+
+
 
 
         </motion.div>

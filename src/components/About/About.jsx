@@ -28,7 +28,7 @@ export default function About() {
       </motion.h2>
 
       <motion.p variants={fadeUp} style={paraStyle}>
-        I approach problems by first understanding the system as a whole—how
+        I approach problems by first understanding the system as a whole, how
         data flows, where decisions are made, and what truly matters to the
         user. I enjoy breaking complex ideas into simple, reliable solutions
         that can scale beyond a prototype.
@@ -42,7 +42,7 @@ export default function About() {
       </motion.p>
 
       <motion.p variants={fadeUp} style={paraStyle}>
-        I care deeply about clarity—both in code and in user experience.
+        I care deeply about clarity, both in code and in user experience.
         Whether I’m designing a system or an interface, I aim to build
         products that feel intentional, understandable, and engineered
         with purpose rather than guesswork.
