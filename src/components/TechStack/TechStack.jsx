@@ -90,7 +90,7 @@ export default function TechStack() {
           color: "var(--text-primary)",
         }}
       >
-        Technical Skills
+        <span className="interactive-link">Technical Skills</span>
       </motion.h2>
 
       {/* Category Buttons */}

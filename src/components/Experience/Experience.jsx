@@ -46,7 +46,7 @@ export default function Experience() {
           color: "var(--text-primary)",
         }}
       >
-        Experience
+        <span className="interactive-link">Experience</span>
       </h2>
 
       <motion.div

@@ -54,7 +54,7 @@ export default function Contact() {
           color: "var(--text-primary)",
         }}
       >
-        Let’s build something meaningful
+        <span className="interactive-link">Let’s build something meaningful</span>
       </motion.h2>
 
       <motion.p

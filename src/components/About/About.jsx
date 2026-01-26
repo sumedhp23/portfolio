@@ -24,7 +24,7 @@ export default function About() {
           color: "var(--text-primary)",
         }}
       >
-        Engineer by training. Designer by intent.
+        <span className="interactive-link">Engineer by training. Designer by intent.</span>
       </motion.h2>
 
       <motion.p variants={fadeUp} style={paraStyle}>
