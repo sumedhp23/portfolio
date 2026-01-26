@@ -9,7 +9,7 @@ export default function Certifications() {
 
   return (
     <section id="certifications" style={{ padding: "160px 80px" }}>
-      {/* MOBILE OVERRIDES — MATCH PROJECTS PATTERN */}
+      {/* MOBILE OVERRIDES */}
       <style>{`
         @media (max-width: 640px) and (orientation: portrait) {
           .certifications-grid {
@@ -30,8 +30,9 @@ export default function Certifications() {
           color: "var(--text-primary)",
         }}
       >
-        Certifications
+        <span className="interactive-link">Certifications</span>
       </h2>
+
 
       <motion.div
         variants={staggerContainer}
@@ -51,7 +52,12 @@ export default function Certifications() {
           <motion.article
             key={cert.id}
             variants={fadeItem}
-            whileHover={{ y: -6 }}
+            whileHover={{
+              y: -6,
+              background:
+                "radial-gradient(600px circle at var(--mx) var(--my), rgba(120,200,255,0.12), transparent 60%), rgba(255,255,255,0.02)",
+              borderColor: "rgba(120,200,255,0.35)",
+            }}
             transition={{ duration: 0.25, ease: "easeOut" }}
             style={{
               background: "rgba(255,255,255,0.02)",
@@ -64,7 +70,7 @@ export default function Certifications() {
             }}
             onClick={() => setActiveCert(cert)}
           >
-            {/* Hero image — matches Projects */}
+            {/* Hero */}
             <div
               className="cert-hero"
               style={{
@@ -77,7 +83,12 @@ export default function Certifications() {
 
             {/* Content */}
             <div style={{ padding: 24, flexGrow: 1 }}>
-              <h3 style={{ marginBottom: 6 }}>{cert.title}</h3>
+              <h3 style={{ marginBottom: 6 }}>
+                <span className="interactive-link">
+                  {cert.title}
+                </span>
+              </h3>
+
               <small>{cert.issuer}</small>
 
               <p
@@ -91,7 +102,7 @@ export default function Certifications() {
               </p>
             </div>
 
-            {/* Footer actions — VERIFY */}
+            {/* Footer */}
             <div
               style={{
                 padding: "16px 24px",
@@ -101,17 +112,19 @@ export default function Certifications() {
               }}
               onClick={(e) => e.stopPropagation()}
             >
-              <a
+              <motion.a
                 href={cert.verify}
                 target="_blank"
                 rel="noreferrer"
+                whileHover={{ x: 6, color: "var(--accent)" }}
+                transition={{ duration: 0.2 }}
                 style={{
                   color: "var(--accent)",
                   fontSize: "0.9rem",
                 }}
               >
                 Verify →
-              </a>
+              </motion.a>
             </div>
           </motion.article>
         ))}

@@ -28,8 +28,9 @@ export default function Projects() {
           color: "var(--text-primary)",
         }}
       >
-        Projects
+        <span className="interactive-link">Projects</span>
       </h2>
+
 
       <motion.div
         variants={staggerContainer}
@@ -49,7 +50,12 @@ export default function Projects() {
           <motion.article
             key={project.id}
             variants={fadeItem}
-            whileHover={{ y: -6 }}
+            whileHover={{
+              y: -6,
+              background:
+                "radial-gradient(600px circle at var(--mx) var(--my), rgba(120,200,255,0.12), transparent 60%), rgba(255,255,255,0.02)",
+              borderColor: "rgba(120,200,255,0.35)",
+            }}
             transition={{ duration: 0.25, ease: "easeOut" }}
             style={{
               background: "rgba(255,255,255,0.02)",
@@ -73,7 +79,11 @@ export default function Projects() {
 
             {/* Content */}
             <div style={{ padding: 24, flexGrow: 1 }}>
-              <h3 style={{ marginBottom: 8 }}>{project.title}</h3>
+              <h3 style={{ marginBottom: 8 }}>
+                <span className="interactive-link">
+                  {project.title}
+                </span>
+              </h3>
 
               <p
                 style={{
@@ -107,9 +117,8 @@ export default function Projects() {
             >
               <Link to={`/projects/${project.id}`}>
                 <motion.span
-                  whileHover={{ x: 6 }}
+                  whileHover={{ x: 6, color: "var(--accent)" }}
                   transition={{ duration: 0.2 }}
-                  style={{ color: "var(--accent)" }}
                 >
                   View case study →
                 </motion.span>
