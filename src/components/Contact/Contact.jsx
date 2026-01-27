@@ -54,7 +54,9 @@ export default function Contact() {
           color: "var(--text-primary)",
         }}
       >
-        <span className="interactive-link">Let’s build something meaningful</span>
+        <span className="interactive-link">
+          Let’s build something meaningful
+        </span>
       </motion.h2>
 
       <motion.p
@@ -73,10 +75,7 @@ export default function Contact() {
       </motion.p>
 
       {/* Contact Blob Card */}
-      <motion.div
-        variants={fadeUp}
-        style={blobStyle}
-      >
+      <motion.div variants={fadeUp} style={blobStyle}>
         <form
           onSubmit={handleSubmit}
           style={{
@@ -92,6 +91,10 @@ export default function Contact() {
             onChange={(e) =>
               setForm({ ...form, name: e.target.value })
             }
+            onMouseEnter={(e) => glowOn(e)}
+            onMouseLeave={(e) => glowOff(e)}
+            onFocus={(e) => glowFocus(e)}
+            onBlur={(e) => glowOff(e)}
             style={inputStyle}
           />
 
@@ -103,6 +106,10 @@ export default function Contact() {
             onChange={(e) =>
               setForm({ ...form, email: e.target.value })
             }
+            onMouseEnter={(e) => glowOn(e)}
+            onMouseLeave={(e) => glowOff(e)}
+            onFocus={(e) => glowFocus(e)}
+            onBlur={(e) => glowOff(e)}
             style={inputStyle}
           />
 
@@ -114,6 +121,10 @@ export default function Contact() {
             onChange={(e) =>
               setForm({ ...form, message: e.target.value })
             }
+            onMouseEnter={(e) => glowOn(e)}
+            onMouseLeave={(e) => glowOff(e)}
+            onFocus={(e) => glowFocus(e)}
+            onBlur={(e) => glowOff(e)}
             style={{ ...inputStyle, resize: "vertical" }}
           />
 
@@ -148,11 +159,8 @@ export default function Contact() {
         </form>
       </motion.div>
 
-      {/* Email below blob */}
-      <motion.div
-        variants={fadeUp}
-        style={{ marginBottom: 48 }}
-      >
+      {/* Email */}
+      <motion.div variants={fadeUp} style={{ marginBottom: 48 }}>
         <a
           href="mailto:sumedhpatil03@gmail.com"
           className="interactive-link"
@@ -257,3 +265,22 @@ const iconStyle = {
   display: "flex",
   alignItems: "center",
 };
+
+/* ───────── glow helpers ───────── */
+
+function glowOn(e) {
+  e.currentTarget.style.boxShadow =
+    "0 0 0 1px rgba(120,200,255,0.35), 0 6px 18px rgba(120,200,255,0.18)";
+  e.currentTarget.style.borderColor = "rgba(120,200,255,0.45)";
+}
+
+function glowFocus(e) {
+  e.currentTarget.style.boxShadow =
+    "0 0 0 1px rgba(120,200,255,0.5), 0 10px 28px rgba(120,200,255,0.25)";
+  e.currentTarget.style.borderColor = "var(--accent)";
+}
+
+function glowOff(e) {
+  e.currentTarget.style.boxShadow = "none";
+  e.currentTarget.style.borderColor = "rgba(255,255,255,0.12)";
+}
