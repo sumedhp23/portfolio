@@ -86,4 +86,6 @@ const paraStyle = {
   lineHeight: 1.7,
   color: "var(--text-secondary)",
   marginBottom: 20,
+  textAlign: "justify",
+  hyphens: "auto",
 };
