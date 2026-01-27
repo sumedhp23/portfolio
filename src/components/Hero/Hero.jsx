@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { staggerContainer, fadeUp } from "../../animations/variants";
 import InteractiveHeroBG from "./InteractiveHeroBG";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 export default function Hero() {
   return (
@@ -37,7 +38,6 @@ export default function Hero() {
           {" "}data-driven systems
         </span>
         with clarity, motion, and intent.
-
       </motion.h1>
 
       <motion.p
@@ -58,18 +58,71 @@ export default function Hero() {
         thoughtful user experience.
       </motion.p>
 
+      {/* Social icons (same as Contact) */}
       <motion.div
-  variants={fadeUp}
-  transition={{ delay: 0.5 }}
-  style={{
-    marginTop: 64,
-    fontSize: "0.9rem",
-    color: "var(--text-muted)",
-  }}
->
-  Scroll to explore ↓
-</motion.div>
+        variants={fadeUp}
+        transition={{ delay: 0.45 }}
+        style={{
+          position: "relative",
+          zIndex: 2,
+          display: "flex",
+          gap: 28,
+          alignItems: "center",
+          marginTop: 40,
+        }}
+      >
+        <motion.a
+          href="https://github.com/sumedhp23"
+          target="_blank"
+          rel="noreferrer"
+          whileHover={{
+            scale: 1.15,
+            color: "var(--accent)",
+            filter: "drop-shadow(0 0 6px rgba(120,200,255,0.6))",
+          }}
+          transition={{ duration: 0.2 }}
+          style={iconStyle}
+        >
+          <FaGithub />
+        </motion.a>
 
+        <motion.a
+          href="https://www.linkedin.com/in/sumedh-patil-034ab2259/"
+          target="_blank"
+          rel="noreferrer"
+          whileHover={{
+            scale: 1.15,
+            color: "var(--accent)",
+            filter: "drop-shadow(0 0 6px rgba(120,200,255,0.6))",
+          }}
+          transition={{ duration: 0.2 }}
+          style={iconStyle}
+        >
+          <FaLinkedin />
+        </motion.a>
+      </motion.div>
+
+      {/* Scroll hint */}
+      <motion.div
+        variants={fadeUp}
+        transition={{ delay: 0.6 }}
+        style={{
+          position: "relative",
+          zIndex: 2,
+          marginTop: 56,
+          fontSize: "0.9rem",
+          color: "var(--text-muted)",
+        }}
+      >
+        Scroll to explore ↓
+      </motion.div>
     </motion.section>
   );
 }
+
+const iconStyle = {
+  fontSize: "1.6rem",
+  color: "var(--text-secondary)",
+  display: "flex",
+  alignItems: "center",
+};
