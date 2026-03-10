@@ -51,7 +51,7 @@ export default function About() {
       {/* Resume Button */}
       <motion.div variants={fadeUp} style={{ marginTop: 40 }}>
         <a
-          href="/resume/Sumedh_Patil_Resume.pdf"
+          href="/resume/SumedhPatil_CV.pdf"
           target="_blank"
           rel="noreferrer"
           style={{
