@@ -2,8 +2,8 @@ export const staggerContainer = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.12,
-      delayChildren: 0.08,
+      staggerChildren: 0.15,
+      delayChildren: 0.1,
     },
   },
 };
@@ -11,46 +11,50 @@ export const staggerContainer = {
 export const fadeUp = {
   hidden: {
     opacity: 0,
-    y: 28,
+    y: 40,
+    filter: "blur(8px)",
   },
   visible: {
     opacity: 1,
     y: 0,
+    filter: "blur(0px)",
     transition: {
-      duration: 0.6,
-      ease: "easeOut",
+      type: "spring",
+      stiffness: 100,
+      damping: 20,
+      mass: 1,
     },
   },
 };
 
 export const subtleHover = {
   hover: {
-    y: -4,
-    transition: { duration: 0.25, ease: "easeOut" },
+    y: -6,
+    transition: { type: "spring", stiffness: 300, damping: 20 },
   },
 };
 
-
-
 export const fadeItem = {
-  hidden: { opacity: 0, y: 18 },
+  hidden: { opacity: 0, y: 20, filter: "blur(4px)" },
   visible: {
     opacity: 1,
     y: 0,
+    filter: "blur(0px)",
     transition: {
-      duration: 0.45,
-      ease: "easeOut",
+      type: "spring",
+      stiffness: 120,
+      damping: 20,
     },
   },
 };
 
-
 export const hoverShift = {
   hover: {
-    x: 6,
+    x: 8,
     transition: {
-      duration: 0.2,
-      ease: "easeOut",
+      type: "spring",
+      stiffness: 400,
+      damping: 25,
     },
   },
 };

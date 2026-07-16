@@ -12,6 +12,8 @@ export default function useScrollToSection() {
 
     setTimeout(() => {
       el.scrollIntoView({ behavior: "smooth" });
+      // Clear the state natively so refreshing doesn't scroll again, without interrupting the current scroll
+      window.history.replaceState({}, document.title);
     }, 100);
   }, [location]);
 }

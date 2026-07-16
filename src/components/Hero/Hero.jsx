@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { staggerContainer, fadeUp } from "../../animations/variants";
-import InteractiveHeroBG from "./InteractiveHeroBG";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 export default function Hero() {
@@ -18,7 +17,7 @@ export default function Hero() {
         zIndex: 2,
       }}
     >
-      <InteractiveHeroBG />
+      {/* InteractiveHeroBG moved to global App.jsx */}
 
       <motion.h1
         variants={fadeUp}
@@ -35,9 +34,9 @@ export default function Hero() {
       >
         Designing & engineering
         <span style={{ color: "var(--accent)" }}>
-          {" "}data-driven systems
+          {" "}intelligent data systems
         </span>
-        with clarity, motion, and intent.
+        that solve real-world problems.
       </motion.h1>
 
       <motion.p
@@ -52,10 +51,7 @@ export default function Hero() {
           color: "var(--text-secondary)",
         }}
       >
-        Im Sumedh, a software engineer working across
-        data, machine learning, and frontend systems,
-        focused on building reliable products with
-        thoughtful user experience.
+        I'm Sumedh Patil, a Computer Science Engineer passionate about building intelligent systems through data, machine learning, and software engineering. From analytics platforms and predictive models to peer-reviewed IEEE research, I create technology that turns complex data into practical solutions with real-world impact.
       </motion.p>
 
       {/* Social icons (same as Contact) */}

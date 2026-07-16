@@ -59,29 +59,30 @@ export default function Contact() {
         </span>
       </motion.h2>
 
-      <motion.p
-        variants={fadeUp}
-        style={{
-          maxWidth: 600,
-          fontSize: "1.1rem",
-          lineHeight: 1.7,
-          color: "var(--text-secondary)",
-          marginBottom: 40,
-        }}
-      >
-        I’m always open to discussing impactful projects, internships,
-        full-time roles, or collaborations across software and data
-        engineering, machine learning, or even a chat over coffee!
-      </motion.p>
+      {/* Main Glass Card Container */}
+      <motion.div variants={fadeUp} className="glass-card" style={{ padding: "48px 40px" }}>
+        <p
+          style={{
+            maxWidth: 600,
+            fontSize: "1.1rem",
+            lineHeight: 1.7,
+            color: "var(--text-secondary)",
+            marginBottom: 40,
+          }}
+        >
+          I’m always open to discussing impactful projects, internships,
+          full-time roles, or collaborations across software and data
+          engineering, machine learning, or even a chat over coffee!
+        </p>
 
-      {/* Contact Blob Card */}
-      <motion.div variants={fadeUp} style={blobStyle}>
+        {/* Contact Form */}
         <form
           onSubmit={handleSubmit}
           style={{
             display: "flex",
             flexDirection: "column",
             gap: 20,
+            marginBottom: 40,
           }}
         >
           <input
@@ -157,57 +158,56 @@ export default function Contact() {
             )}
           </div>
         </form>
-      </motion.div>
 
-      {/* Email */}
-      <motion.div variants={fadeUp} style={{ marginBottom: 48 }}>
-        <a
-          href="mailto:sumedhpatil03@gmail.com"
-          className="interactive-link"
-          style={{ fontSize: "1rem" }}
-        >
-          sumedhpatil03@gmail.com
-        </a>
-      </motion.div>
+        {/* Email */}
+        <div style={{ marginBottom: 32 }}>
+          <a
+            href="mailto:sumedhpatil03@gmail.com"
+            className="interactive-link"
+            style={{ fontSize: "1rem" }}
+          >
+            sumedhpatil03@gmail.com
+          </a>
+        </div>
 
-      {/* Social icons */}
-      <motion.div
-        variants={fadeUp}
-        style={{
-          display: "flex",
-          gap: 28,
-          alignItems: "center",
-        }}
-      >
-        <motion.a
-          href="https://github.com/sumedhp23"
-          target="_blank"
-          rel="noreferrer"
-          whileHover={{
-            scale: 1.15,
-            color: "var(--accent)",
-            filter: "drop-shadow(0 0 6px rgba(120,200,255,0.6))",
+        {/* Social icons */}
+        <div
+          style={{
+            display: "flex",
+            gap: 28,
+            alignItems: "center",
           }}
-          transition={{ duration: 0.2 }}
-          style={iconStyle}
         >
-          <FaGithub />
-        </motion.a>
+          <motion.a
+            href="https://github.com/sumedhp23"
+            target="_blank"
+            rel="noreferrer"
+            whileHover={{
+              scale: 1.15,
+              color: "var(--accent)",
+              filter: "drop-shadow(0 0 6px rgba(120,200,255,0.6))",
+            }}
+            transition={{ duration: 0.2 }}
+            style={iconStyle}
+          >
+            <FaGithub />
+          </motion.a>
 
-        <motion.a
-          href="https://www.linkedin.com/in/sumedh-patil-034ab2259/"
-          target="_blank"
-          rel="noreferrer"
-          whileHover={{
-            scale: 1.15,
-            color: "var(--accent)",
-            filter: "drop-shadow(0 0 6px rgba(120,200,255,0.6))",
-          }}
-          transition={{ duration: 0.2 }}
-          style={iconStyle}
-        >
-          <FaLinkedin />
-        </motion.a>
+          <motion.a
+            href="https://www.linkedin.com/in/sumedh-patil-034ab2259/"
+            target="_blank"
+            rel="noreferrer"
+            whileHover={{
+              scale: 1.15,
+              color: "var(--accent)",
+              filter: "drop-shadow(0 0 6px rgba(120,200,255,0.6))",
+            }}
+            transition={{ duration: 0.2 }}
+            style={iconStyle}
+          >
+            <FaLinkedin />
+          </motion.a>
+        </div>
       </motion.div>
 
       {/* Footer */}

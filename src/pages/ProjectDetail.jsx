@@ -102,69 +102,68 @@ export default function ProjectDetail() {
           }}
         >
           {/* ================= LEFT COLUMN ================= */}
-          <div>
-            <motion.h1 variants={fadeUp}>{project.title}</motion.h1>
+          <motion.div variants={fadeUp} className="glass-card" style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
+            <div>
+              <h1>{project.title}</h1>
+              <p
+                style={{
+                  marginTop: 16,
+                  color: "var(--text-secondary)",
+                  maxWidth: 640,
+                }}
+              >
+                {project.short}
+              </p>
+            </div>
 
-            <motion.p
-              variants={fadeUp}
-              style={{
-                marginTop: 16,
-                color: "var(--text-secondary)",
-                maxWidth: 640,
-              }}
-            >
-              {project.short}
-            </motion.p>
-
-            <motion.div variants={fadeUp} style={{ marginTop: 32 }}>
+            <div>
               <h3>Tech Stack</h3>
               <p style={{ color: "var(--text-muted)" }}>
                 {project.details.tech.join(" · ")}
               </p>
-            </motion.div>
+            </div>
 
-            <motion.div variants={fadeUp} style={{ marginTop: 48 }}>
+            <div>
               <h3>Problem</h3>
               <p>{project.details.problem}</p>
-            </motion.div>
+            </div>
 
             {project.details.constraints && (
-              <motion.div variants={fadeUp} style={{ marginTop: 32 }}>
+              <div>
                 <h3>Constraints</h3>
                 <ul>
                   {project.details.constraints.map((c, i) => (
                     <li key={i}>{c}</li>
                   ))}
                 </ul>
-              </motion.div>
+              </div>
             )}
 
-            <motion.div variants={fadeUp} style={{ marginTop: 32 }}>
+            <div>
               <h3>Solution</h3>
               <p>{project.details.solution}</p>
-            </motion.div>
+            </div>
 
             {project.details.architecture && (
-              <motion.div variants={fadeUp} style={{ marginTop: 32 }}>
+              <div>
                 <h3>System Flow</h3>
                 <p>{project.details.architecture}</p>
-              </motion.div>
+              </div>
             )}
 
-            <motion.div variants={fadeUp} style={{ marginTop: 32 }}>
+            <div>
               <h3>Impact</h3>
               <ul>
                 {project.details.impact.map((item, idx) => (
                   <li key={idx}>{item}</li>
                 ))}
               </ul>
-            </motion.div>
+            </div>
 
             {/* LINKS */}
-            <motion.div
-              variants={fadeUp}
+            <div
               style={{
-                marginTop: 40,
+                marginTop: 8,
                 display: "flex",
                 gap: 28,
                 alignItems: "center",
@@ -206,12 +205,12 @@ export default function ProjectDetail() {
                   🌐 Live Demo
                 </motion.a>
               )}
-            </motion.div>
+            </div>
 
-            <motion.div variants={fadeUp} style={{ marginTop: 64 }}>
-              <Link to="/">← Back to Home</Link>
-            </motion.div>
-          </div>
+            <div style={{ marginTop: 32 }}>
+              <Link to="/" state={{ scrollTo: "projects" }}>← Back to Home</Link>
+            </div>
+          </motion.div>
 
           {/* ================= RIGHT COLUMN ================= */}
           <div

@@ -1,27 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&display=swap');
+
 :root {
+  --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 
-  --mx: 50%;
-  --my: 50%;
+  --fs-h1: clamp(3rem, 7vw, 5.5rem);
+  --fs-h2: clamp(2.2rem, 5vw, 3.5rem);
+  --fs-h3: clamp(1.4rem, 2vw, 1.8rem);
+  --fs-body: 1.1rem;
+  --fs-small: 0.95rem;
 
-  --bg-primary: #0e0e11;
-  --accent: #78c8ff;
-
-  /* Typography scale */
-  --font-sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Inter",
-    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-
-  --text-primary: #f5f6f7;
-  --text-secondary: #c9ccd1;
-  --text-muted: #9aa0a6;
-
-  --fs-h1: clamp(2.6rem, 6vw, 4.6rem);
-  --fs-h2: clamp(2rem, 4vw, 3rem);
-  --fs-h3: 1.2rem;
-  --fs-body: 1.05rem;
-  --fs-small: 0.9rem;
-
-  --lh-tight: 1.15;
-  --lh-normal: 1.65;
+  --lh-tight: 1.1;
+  --lh-normal: 1.6;
 
   /* Spacing rhythm */
   --space-xs: 8px;
@@ -29,7 +18,7 @@
   --space-md: 24px;
   --space-lg: 40px;
   --space-xl: 64px;
-  --space-2xl: 96px;
+  --space-2xl: 120px;
 }
 
 * {
@@ -38,64 +27,83 @@
   box-sizing: border-box;
 }
 
-html,
-body {
+html, body {
   height: 100%;
   font-family: var(--font-sans);
   background: var(--bg-primary);
   color: var(--text-primary);
+  /* Smooth scroll */
+  scroll-behavior: smooth;
 }
 
-a {
+::selection {
+  background: var(--accent-glow);
+  color: var(--bg-primary);
+}
+
+a, button, .interactive {
   color: var(--text-secondary);
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: transform 0.25s ease, text-shadow 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
 }
 
-a:hover {
+a:hover, button:hover, .interactive:hover {
   color: var(--text-primary);
+  transform: translateY(-2px);
+  text-shadow: 0 0 12px rgba(56, 189, 248, 0.5);
 }
 
 section {
   position: relative;
-  scroll-margin-top: 120px;
+  scroll-margin-top: 80px;
   padding-block: var(--space-2xl);
-}
-
-section > * + * {
-  margin-top: var(--space-lg);
-}
-
-#experience,
-#projects {
-  scroll-margin-top: 200px;
+  z-index: 2; /* To sit above 3d canvas */
 }
 
 /* ============================= */
-/* Interactive text links    */
+/* Utility Classes               */
 /* ============================= */
+
+.glass-card {
+  background: var(--surface-glass);
+  backdrop-filter: var(--blur-md);
+  -webkit-backdrop-filter: var(--blur-md);
+  border: 1px solid var(--border-glass);
+  border-radius: 20px;
+  padding: var(--space-lg);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+              border-color 0.4s ease, 
+              box-shadow 0.4s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--accent-soft);
+  box-shadow: 0 10px 30px -10px rgba(56, 189, 248, 0.2);
+}
 
 .interactive-link {
-  display: inline;
+  display: inline-block;
   color: var(--text-primary);
-
-  background-image: linear-gradient(
-    to right,
-    var(--accent),
-    var(--accent)
-  );
-  background-size: 0% 1px;
-  background-position: 0 100%;
-  background-repeat: no-repeat;
-
-  transition:
-    color 0.2s ease,
-    background-size 0.25s ease;
+  position: relative;
 }
 
-.interactive-link:hover {
-  color: var(--accent);
-  background-size: 100% 1px;
+.interactive-link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--accent-glow);
+  transform-origin: bottom right;
+  transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+.interactive-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -105,13 +113,9 @@ section > * + * {
   }
 }
 
-body {
-  font-family: var(--font-sans);
-  color: var(--text-primary);
-}
-
 h1, h2, h3 {
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
+  font-weight: 700;
 }
 
 h1 {
@@ -121,7 +125,7 @@ h1 {
 
 h2 {
   font-size: var(--fs-h2);
-  line-height: 1.2;
+  line-height: var(--lh-tight);
 }
 
 h3 {
@@ -132,6 +136,7 @@ p {
   font-size: var(--fs-body);
   line-height: var(--lh-normal);
   color: var(--text-secondary);
+  font-weight: 300;
 }
 
 small {
@@ -143,12 +148,8 @@ small {
   section {
     padding-block: var(--space-xl);
   }
-
-  p {
-    font-size: 1rem;
+  .glass-card {
+    padding: var(--space-md);
   }
 }
 
-#certifications {
-  scroll-margin-top: 200px;
-}

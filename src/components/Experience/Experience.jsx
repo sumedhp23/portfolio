@@ -5,7 +5,7 @@ import { staggerContainer, fadeItem } from "../../animations/variants";
 
 export default function Experience() {
   return (
-    <section style={{ padding: "160px 80px", position: "relative" }}>
+    <section id="experience" style={{ padding: "160px 80px", position: "relative" }}>
       {/* MOBILE OVERRIDES */}
       <style>{`
         @media (max-width: 640px) and (orientation: portrait) {
@@ -50,7 +50,6 @@ export default function Experience() {
       </h2>
 
       <motion.div
-        id="experience"
         variants={staggerContainer}
         initial="hidden"
         whileInView="visible"
@@ -95,13 +94,14 @@ export default function Experience() {
             >
               {/* Content */}
               <div
-                className="exp-content"
+                className="exp-content glass-card"
                 style={{
                   width: "45%",
                   textAlign: isLeft ? "right" : "left",
+                  background: "var(--surface-primary)",
                 }}
               >
-                <h3 className="interactive-link">{item.role}</h3>
+                <h3 className="interactive-link" style={{ marginBottom: "8px" }}>{item.role}</h3>
 
                 <p style={{ marginTop: 6, color: "var(--text-muted)" }}>
                   {item.org} · {item.period}

@@ -30,54 +30,52 @@ export default function ExperienceDetail() {
       </motion.p>
 
       {item.details && (
-        <>
-          <motion.p
-            variants={fadeUp}
+        <motion.div variants={fadeUp} className="glass-card" style={{ marginTop: 40 }}>
+          <p
             style={{
-              marginTop: 32,
               color: "var(--text-secondary)",
               lineHeight: 1.7,
             }}
           >
             {item.details.overview}
-          </motion.p>
+          </p>
 
-          <motion.div variants={fadeUp} style={{ marginTop: 48 }}>
+          <div style={{ marginTop: 48 }}>
             <h3>Key Responsibilities</h3>
             <ul>
               {item.details.responsibilities.map((r, i) => (
                 <li key={i}>{r}</li>
               ))}
             </ul>
-          </motion.div>
+          </div>
 
-          <motion.div variants={fadeUp} style={{ marginTop: 32 }}>
+          <div style={{ marginTop: 32 }}>
             <h3>Projects</h3>
             <ul>
               {item.details.projects.map((p, i) => (
                 <li key={i}>{p}</li>
               ))}
             </ul>
-          </motion.div>
+          </div>
 
-          <motion.div variants={fadeUp} style={{ marginTop: 32 }}>
+          <div style={{ marginTop: 32 }}>
             <h3>Tech Stack</h3>
             <p>{item.details.tech.join(" · ")}</p>
-          </motion.div>
+          </div>
 
-          <motion.div variants={fadeUp} style={{ marginTop: 32 }}>
+          <div style={{ marginTop: 32 }}>
             <h3>Impact</h3>
             <ul>
               {item.details.impact.map((imp, i) => (
                 <li key={i}>{imp}</li>
               ))}
             </ul>
-          </motion.div>
-        </>
+          </div>
+        </motion.div>
       )}
 
       <motion.div variants={fadeUp} style={{ marginTop: 64 }}>
-        <Link to="/">← Back to Home</Link>
+        <Link to="/" state={{ scrollTo: "experience" }}>← Back to Home</Link>
       </motion.div>
     </motion.main>
   );

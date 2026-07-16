@@ -1,9 +1,56 @@
 export const experience = [
   {
+    id: "aequs-limited",
+    role: "Software Engineer Intern",
+    org: "Aequs Limited",
+    period: "March 2026 — May 2026",
+    short:
+      "Led the development of enterprise manufacturing applications to digitize production workflows, automate tooling operations, and improve shop-floor efficiency.",
+    details: {
+      overview:
+        "At Aequs Limited, I designed and developed two production-grade internal applications that streamlined manufacturing operations by replacing manual processes with scalable digital workflows. Working closely with engineering and production teams, I transformed complex business requirements into maintainable full-stack software solutions.",
+
+      responsibilities: [
+        "Gathered business requirements from manufacturing and tooling teams to design scalable software solutions",
+        "Developed full-stack web applications using Django, Python, MS SQL Server, HTML, CSS, JavaScript, and Bootstrap",
+        "Designed normalized relational database schemas for production requests, tooling lifecycle, operators, machines, and audit records",
+        "Implemented workflow automation, role-based access control, approval pipelines, lifecycle tracking, and dynamic dashboards",
+        "Built robust Excel import/export modules with validation, duplicate detection, and automated data processing",
+        "Resolved production issues involving database consistency, lifecycle calculations, and data validation while improving system reliability"
+      ],
+
+      projects: [
+        "PTR Request Management System — digitized production tool request workflows with automated approvals, request tracking, and centralized management",
+        "CNC Tool Lifecycle Management System — developed an enterprise platform to monitor tool inventory, lifecycle utilization, maintenance history, and production analytics"
+      ],
+
+      tech: [
+        "Python",
+        "Django",
+        "MS SQL Server",
+        "SQL",
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Bootstrap",
+        "Git",
+        "GitHub"
+      ],
+
+      impact: [
+        "Replaced spreadsheet-driven manufacturing workflows with centralized digital systems",
+        "Improved tooling traceability, lifecycle visibility, and operational efficiency across production teams",
+        "Automated manual engineering processes through workflow automation and business logic",
+        "Delivered scalable, maintainable applications that established a foundation for future manufacturing digitization"
+      ],
+    },
+  },
+
+  {
     id: "nrb-paints",
     role: "Digital Product Data Analyst",
     org: "NRB Paints",
-    period: "2025 — Present",
+    period: "June 2025 — Feb 2026",
     short:
       "Worked on data-driven systems for demand forecasting, analytics, and operational decision support in a manufacturing environment.",
     details: {
@@ -41,7 +88,7 @@ export const experience = [
     id: "rooman",
     role: "AI / ML Engineering Intern",
     org: "Rooman Technologies",
-    period: "2024 — 2025",
+    period: "Sept 2024 — April 2025",
     short:
       "Developed end-to-end machine learning pipelines with a focus on classification, evaluation, and real-world deployment readiness.",
     details: {
@@ -79,7 +126,7 @@ export const experience = [
     id: "future-technologys",
     role: "Software Engineering Intern",
     org: "Future Technologys",
-    period: "2024",
+    period: "Mar 2024 - April 2024",
     short:
       "Built backend systems and data-driven applications with real-time API ingestion and structured processing.",
     details: {

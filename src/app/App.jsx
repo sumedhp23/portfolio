@@ -1,43 +1,62 @@
 import ScrollProgress from "../components/ScrollProgress/ScrollProgress";
 import { Outlet, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-import { useEffect } from "react";
+import { useEffect, useState, useRef } from "react";
 import useScrollToTop from "../hooks/useScrollToTop";
 import useScrollToSection from "../hooks/useScrollToSection";
-
+import CustomCursor from "../components/CustomCursor";
+import Header from "../components/Header/Header";
+import MenuOverlay from "../components/Menu/MenuOverlay";
 export default function App() {
   const location = useLocation();
+  const [menuOpen, setMenuOpen] = useState(false);
+  const cursorLightRef = useRef(null);
 
   useScrollToTop();
   useScrollToSection();
 
-  // ✅ cursor position updater (already discussed)
+  // Performant cursor light updater directly manipulating DOM node styles
   useEffect(() => {
-    const handleMouseMove = (e) => {
-      const x = (e.clientX / window.innerWidth) * 100;
-      const y = (e.clientY / window.innerHeight) * 100;
+    let animationFrameId;
 
-      document.documentElement.style.setProperty("--mx", `${x}%`);
-      document.documentElement.style.setProperty("--my", `${y}%`);
+    const handleMouseMove = (e) => {
+      if (cursorLightRef.current) {
+        const x = (e.clientX / window.innerWidth) * 100;
+        const y = (e.clientY / window.innerHeight) * 100;
+        
+        // Use requestAnimationFrame to avoid layout thrashing
+        cancelAnimationFrame(animationFrameId);
+        animationFrameId = requestAnimationFrame(() => {
+          cursorLightRef.current.style.background = `radial-gradient(750px circle at ${x}% ${y}%, rgba(56,189,248,0.08), transparent 60%)`;
+        });
+      }
     };
 
     window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      cancelAnimationFrame(animationFrameId);
+    };
   }, []);
 
   return (
     <>
-      {/* ✅ GLOBAL CURSOR LIGHT (THIS WAS MISSING) */}
+      <CustomCursor />
+      
+      {/* GLOBAL CURSOR LIGHT */}
       <div
+        ref={cursorLightRef}
         style={{
           position: "fixed",
           inset: 0,
           pointerEvents: "none",
           zIndex: 1,
-          background:
-            "radial-gradient(750px circle at var(--mx) var(--my), rgba(120,200,255,0.20), transparent 60%)",
+          background: "radial-gradient(750px circle at 50% 50%, rgba(56,189,248,0.08), transparent 60%)",
         }}
       />
+
+      <Header onMenuOpen={() => setMenuOpen(true)} />
+      <MenuOverlay isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
 
       <ScrollProgress />
 

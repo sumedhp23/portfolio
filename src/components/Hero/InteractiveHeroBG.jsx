@@ -1,22 +1,20 @@
+import React, { useRef, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { useRef } from "react";
 import * as THREE from "three";
 
 function FlowPlane({ mouse }) {
-  const material = useRef();
+  const materialRef = useRef();
 
   useFrame(({ clock }) => {
-    if (!material.current) return;
-
-    material.current.uniforms.uTime.value = clock.elapsedTime * 0.4;
-    material.current.uniforms.uMouse.value.lerp(mouse, 0.14);
+    if (!materialRef.current) return;
+    materialRef.current.uniforms.uTime.value = clock.elapsedTime * 0.4;
+    materialRef.current.uniforms.uMouse.value.lerp(mouse, 0.14);
   });
-
   return (
     <mesh rotation={[-Math.PI / 2, 0, 0]}>
       <planeGeometry args={[6, 6, 128, 128]} />
       <shaderMaterial
-        ref={material}
+        ref={materialRef}
         transparent
         depthWrite={false}
         depthTest={false}
@@ -50,7 +48,7 @@ function FlowPlane({ mouse }) {
             float mouseInfluence =
               smoothstep(1.0, 0.0, distance(vUv, uMouse * 0.55 + 0.5));
 
-            pos.z += wave + mouseInfluence * 0.9;
+            pos.z += wave + mouseInfluence * 1.5;
 
             gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
           }
@@ -60,18 +58,18 @@ function FlowPlane({ mouse }) {
           varying vec2 vUv;
 
           void main() {
-            float shimmer = sin(uTime * 0.4 + vUv.y * 4.0) * 0.03;
+            float shimmer = sin(uTime * 0.4 + vUv.y * 4.0) * 0.05;
 
-            vec3 base = mix(
-              vec3(0.05, 0.07, 0.12),
-              vec3(0.12, 0.18, 0.26),
-              vUv.y + shimmer
-            );
-
-            float vignette = smoothstep(0.9, 0.2, distance(vUv, vec2(0.5)));
-            gl_FragColor = vec4(base + vignette * 0.18, 0.35);
+            // Cyber-blue accent base
+            vec3 baseColor = vec3(0.22, 0.74, 0.97) * 0.6;
+            
+            float distanceToCenter = distance(vUv, vec2(0.5));
+            float vignette = smoothstep(1.0, 0.0, distanceToCenter);
+            
+            gl_FragColor = vec4(baseColor * vignette, 0.4 + shimmer);
           }
         `}
+        wireframe={true}
       />
     </mesh>
   );
@@ -80,25 +78,36 @@ function FlowPlane({ mouse }) {
 export default function InteractiveHeroBG() {
   const mouse = useRef(new THREE.Vector2(0.5, 0.5));
 
-  const handleMouseMove = (e) => {
-    mouse.current.set(
-      e.clientX / window.innerWidth,
-      1 - e.clientY / window.innerHeight
-    );
-  };
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      mouse.current.set(e.clientX / window.innerWidth, 1 - e.clientY / window.innerHeight);
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+
+    // Initial wake-up hack for first load
+    const timer = setTimeout(() => {
+      window.dispatchEvent(new Event("resize"));
+    }, 100);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      clearTimeout(timer);
+    };
+  }, []);
 
   return (
     <div
-      onMouseMove={handleMouseMove}
       style={{
-        position: "absolute",
+        position: "fixed",
         inset: 0,
         zIndex: 0,
+        pointerEvents: "none",
+        transform: "translateZ(0)", // Hardware acceleration to bypass basic occlusion tracking
       }}
     >
       <Canvas
         camera={{ position: [0, 2, 3] }}
-        gl={{ alpha: true, antialias: true }}
+        gl={{ alpha: true, antialias: true, powerPreference: "high-performance" }}
         style={{
           position: "absolute",
           inset: 0,
