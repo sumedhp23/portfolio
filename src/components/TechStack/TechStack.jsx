@@ -121,16 +121,18 @@ export default function TechStack() {
                 padding: "12px 22px",
                 borderRadius: 999,
                 border: isActive
-                  ? "1px solid rgba(255,255,255,0.4)"
-                  : "1px solid rgba(255,255,255,0.12)",
+                  ? "1px solid rgba(255,255,255,0.5)"
+                  : "1px solid rgba(255,255,255,0.3)",
                 background: isActive
-                  ? "rgba(255,255,255,0.10)"
-                  : "rgba(255,255,255,0.03)",
+                  ? "rgba(255,255,255,0.15)"
+                  : "rgba(255,255,255,0.1)",
                 color: isActive
                   ? "var(--text-primary)"
-                  : "var(--text-muted)",
-                fontSize: "0.95rem",
-                letterSpacing: "0.01em",
+                  : "#9ca3af",
+                fontSize: "1.05rem",
+                fontWeight: isActive ? 800 : 600,
+                letterSpacing: "0.02em",
+                textTransform: "uppercase",
                 cursor: "pointer",
                 transition: "all 0.25s ease",
               }}

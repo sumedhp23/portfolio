@@ -40,6 +40,7 @@ export default function MenuOverlay({ isOpen, onClose }) {
             }}
           >
             <MenuItem label="About" onClick={() => handleClick("about")} />
+            <MenuItem label="Research" onClick={() => handleClick("research")} />
             <MenuItem label="Tech Stack" onClick={() => handleClick("tech")} />
             <MenuItem label="Experience" onClick={() => handleClick("experience")} />
             <MenuItem label="Projects" onClick={() => handleClick("projects")} />
@@ -83,6 +84,7 @@ function MenuItem({ label, onClick }) {
         fontWeight: 500,
         color: "#f5f5f5",
         cursor: "pointer",
+        textTransform: "uppercase",
 
         /* ✨ Micro-interaction polish */
         transition: "opacity 0.2s ease, transform 0.2s ease",

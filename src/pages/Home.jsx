@@ -3,6 +3,7 @@ import { pageVariants } from "../animations/pageVariants";
 
 import Hero from "../components/Hero/Hero";
 import About from "../components/About/About";
+import Research from "../components/Research/Research";
 import TechStack from "../components/TechStack/TechStack";
 import Experience from "../components/Experience/Experience";
 import Projects from "../components/Projects/Projects";
@@ -19,6 +20,7 @@ export default function Home() {
     >
       <Hero />
       <About />
+      <Research />
       <TechStack />
       <Experience />
       <Projects />
